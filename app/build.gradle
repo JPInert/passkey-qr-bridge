@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Release signing comes from the environment, so no key material lives in the repo.
+// Without it, release builds are left unsigned (F-Droid signs its own builds).
+def ks = System.getenv('PQB_KEYSTORE')
+def signed = ks && System.getenv('PQB_KEYSTORE_PASSWORD') && System.getenv('PQB_KEY_ALIAS')
+
+android {
+    namespace 'io.github.jpinert.passkeyqr'
+    compileSdk 37
+
+    defaultConfig {
+        applicationId 'io.github.jpinert.passkeyqr'
+        minSdk 28
+        targetSdk 37
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    signingConfigs {
+        release {
+            if (signed) {
+                storeFile file(ks)
+                storePassword System.getenv('PQB_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('PQB_KEY_ALIAS')
+                keyPassword System.getenv('PQB_KEY_PASSWORD') ?: System.getenv('PQB_KEYSTORE_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            if (signed) signingConfig signingConfigs.release
+        }
+    }
+
+    dependenciesInfo {
+        // F-Droid: no Google-encrypted dependency blob in the APK
+        includeInApk = false
+        includeInBundle = false
+    }
+}

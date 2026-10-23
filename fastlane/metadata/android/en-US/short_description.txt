@@ -1,0 +1,1 @@
+Scan passkey sign-in QR codes with your phone's own camera app

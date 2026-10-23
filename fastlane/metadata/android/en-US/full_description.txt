@@ -1,0 +1,9 @@
+<p>When a computer offers <i>use a phone or another device</i> for a passkey sign-in, it shows a QR code that starts with <code>FIDO:/</code>. Many phone makers' camera apps read the QR, don't recognise the code, and send it to a web search, so you get a browser page instead of a sign-in prompt.</p>
+<p>Passkey QR Bridge sits in front of web search. Passkey codes go to the phone's passkey handler (Google Play Services), the same place Google's own QR scanner sends them. Every other search goes on to your browser unchanged.</p>
+<ul>
+<li>No internet permission, no data kept, no background service</li>
+<li>Never on screen during use</li>
+<li>Links and Wi-Fi QR codes are untouched: the camera handles those itself</li>
+</ul>
+<p>Setup: open the app, tap <b>Set up</b>, choose Passkey QR Bridge and <b>Always</b>.</p>
+<p>Needs a passkey handler on the phone, normally Google Play Services. Without one, passkey codes go to the browser as before.</p>

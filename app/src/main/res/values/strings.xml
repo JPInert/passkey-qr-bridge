@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Passkey QR Bridge</string>
+    <string name="shim_label">Passkey QR Bridge</string>
+    <string name="about">Lets your phone\'s own camera sign you in with a passkey QR code.\n\nMany camera apps read QR codes but don\'t understand passkey codes (the ones a computer shows when you choose \"use a phone\"). They send them to a web search instead. This app sits in front of web search: passkey codes go to your phone\'s passkey handler, and every other search goes on to your browser unchanged.</string>
+    <string name="status_active">✓ Active. Web searches pass through this app.</string>
+    <string name="status_ask">Not set up yet. Tap the button, choose Passkey QR Bridge, then tap Always.</string>
+    <string name="status_other">Web searches always go to %1$s, so this app never sees them. Open %1$s\'s settings → Open by default → Clear defaults, then come back here.</string>
+    <string name="button_setup">Set up</string>
+    <string name="button_clear">Open %1$s settings</string>
+    <string name="passkey_ok">Passkey handler found (Google Play Services).</string>
+    <string name="passkey_missing">No passkey handler found on this phone. Passkey codes will go to your browser as before.</string>
+    <string name="no_passkey_handler">No passkey handler on this phone</string>
+    <string name="how">How to use: on the computer, choose to sign in with a phone or another device. Scan the QR code with your camera app, then follow the prompts. Bluetooth must be on: it proves the phone is near the computer.\n\nThis app has no internet permission, keeps no data, and never shows up unless you open it.</string>
+</resources>
